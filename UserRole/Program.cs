@@ -1,6 +1,8 @@
-﻿bool CheckAccess(UserRole role)
+﻿bool CheckAccess(Enum roleEnum)
 {
-    if(role==UserRole.Admin || role ==UserRole.Moderator)
+    if(roleEnum is not UserRole)
+        return false;
+    if(roleEnum is UserRole.Admin || roleEnum is UserRole.Moderator)
         return true;
     return false;
 }
